@@ -55,7 +55,8 @@ function appendAllItems(show,item) {
         text+=append(2,item.product,'show');
         text+=append(2,item.quantity,'show');
         text+=append(2,"<button id='"+item.receiptItemID+"' class='update-item'>Izmeni</button>" +
-            "<button id='"+item.receiptItemID+"' class='delete-item'>Izbrisi</button>",'show');
+            "<button id='"+item.receiptItemID+"' class='delete-item'>Izbrisi</button>" +
+            "<button id='"+item.receiptItemID+"' class='convert-item'>Prikazi u $</button>",'show');
 
     }else{
         text+='<div class="write col-md-12 hide">';
@@ -386,5 +387,16 @@ $(document).on('click','.delete-item',function () {
         $('#items-data > #'+ data.id).remove();
     });
 });
+$(document).on('click','.convert-item',function () {
+    var amount=$('#items-data > #'+ this.id+' > .write > div > input[name="amount"]')[0].value;
+    $.ajax({
+        url:'http://api.fixer.io/latest?symbols=USD,EUR',
+        method:'GET'
+    }).then(function (data) {
+        if(data.success==="false") return;
+            alert("To je "+(amount* data.rates.USD).toFixed(2) +"$");
+    });
+});
+
 
 
