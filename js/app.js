@@ -2,7 +2,7 @@
 window.localStorage.clear();
 var domain="http://localhost/iteh-server/router.php/";
 function append(size,data,show) {
-    return '<div class="'+show+' col-md-'+size+'">'+data+'</div>';
+    return '<div class="'+show+' col-md-'+size+'"><p>'+data+'</p></div>';
 }
 function appendInput(size,data,field,enabled) {
     if(enabled){
@@ -27,9 +27,9 @@ function appendAllReceipts(show,receipt) {
         text+=append(2,receipt.person,'show');
         text+=append(2,receipt.amount,'show');
         text+=append(2,receipt.tableNumber,'show');
-        text+=append(2,"<button id='"+receipt.receiptID+"' class='select-receipt'>Vidi stavke</button>" +
-            "<button id='"+receipt.receiptID+"' class='update-receipt'>Izmeni</button>" +
-            "<button id='"+receipt.receiptID+"' class='delete-receipt'>Izbrisi</button>",'show');
+        text+=append(2,"<button id='"+receipt.receiptID+"' class='btn btn-primary  select-receipt'><i class='icon-big ion-ios-list-outline'></i></button>" +
+            "<button id='"+receipt.receiptID+"' class='btn btn-primary  update-receipt'><i class='icon-big ion-ios-compose-outline'></i></button>" +
+            "<button id='"+receipt.receiptID+"' class='btn btn-primary  delete-receipt'><i class='icon-big ion-ios-trash-outline'></i></button>",'show');
 
     }else{
         text+='<div class="write col-md-12 hide">';
@@ -38,8 +38,8 @@ function appendAllReceipts(show,receipt) {
         text+=appendInput(2,receipt.person,"person",true);
         text+=appendInput(2,receipt.amount,"amount",true);
         text+=appendInput(2,receipt.tableNumber,"tableNumber",true);
-        text+=append(2,"<button id='"+receipt.receiptID+"' class='confirm-update-receipt'>Izmeni</button>" +
-                        "<button id='"+receipt.receiptID+"' class='cancel-update-receipt'>Odustani</button>",'hide');
+        text+=append(2,"<button id='"+receipt.receiptID+"' class='btn btn-primary confirm-update-receipt'><i class='icon-big ion-ios-checkmark-empty'></i></button>" +
+                        "<button id='"+receipt.receiptID+"' class='btn btn-primary cancel-update-receipt'><i class='icon-big ion-ios-close-empty'></i></button>",'hide');
     }
     text+='</div>';
    return text;
@@ -54,9 +54,9 @@ function appendAllItems(show,item) {
         text+=append(2,item.amount,'show');
         text+=append(2,item.product,'show');
         text+=append(2,item.quantity,'show');
-        text+=append(2,"<button id='"+item.receiptItemID+"' class='update-item'>Izmeni</button>" +
-            "<button id='"+item.receiptItemID+"' class='delete-item'>Izbrisi</button>" +
-            "<button id='"+item.receiptItemID+"' class='convert-item'>Prikazi u $</button>",'show');
+        text+=append(2,"<button id='"+item.receiptItemID+"' class='btn btn-primary  update-item'><i class='icon-big ion-ios-compose-outline'></i></button>" +
+            "<button id='"+item.receiptItemID+"' class='btn btn-primary  delete-item'><i class='icon-big ion-ios-trash-outline'></i></button>" +
+            "<button id='"+item.receiptItemID+"' class='btn btn-primary  convert-item icon-big'>$</button>",'show');
 
     }else{
         text+='<div class="write col-md-12 hide">';
@@ -65,8 +65,8 @@ function appendAllItems(show,item) {
         text+=appendInput(2,item.amount,"amount",true);
         text+=appendInput(2,item.product,"product",true);
         text+=appendInput(2,item.quantity,"quantity",true);
-        text+=append(2,"<button id='"+item.receiptItemID+"' class='confirm-update-item'>Izmeni</button>" +
-            "<button id='"+item.receiptItemID+"' class='cancel-update-item'>Odustani</button>",'hide');
+        text+=append(2,"<button id='"+item.receiptItemID+"' class='btn btn-primary  confirm-update-item'><i class='icon-big ion-ios-checkmark-empty'></i></button>" +
+            "<button id='"+item.receiptItemID+"' class='btn btn-primary  cancel-update-item'><i class='icon-big ion-ios-close-empty'></i></button>",'hide');
     }
     text+='</div>';
     return text;
@@ -79,7 +79,7 @@ function appendNewReceipt() {
         text+=appendNewInput(2,'','show',"person",true);
         text+=appendNewInput(2,'','show',"amount",true);
         text+=appendNewInput(2,'','show',"tableNumber",true);
-        text+=append(2,"<button id='confirm-insert-receipt'>Dodaj</button><button id='cancel-insert-receipt'>Odustani</button>",'show');
+        text+=append(2,"<button class='btn btn-primary' id='confirm-insert-receipt'><i class='icon-big ion-ios-checkmark-empty'></i></button><button class='btn btn-primary' id='cancel-insert-receipt'><i class='icon-big ion-ios-close-empty'></i></button>",'show');
         text+='</div>';
     $("#receipt-data").append(text);
 }
@@ -90,7 +90,7 @@ function appendNewItem() {
     text+=appendNewInput(2,'','show',"amount",true);
     text+=appendNewInput(2,'','show',"product",true);
     text+=appendNewInput(2,'','show',"quantity",true);
-    text+=append(2,"<button id='confirm-insert-item'>Dodaj</button><button id='cancel-insert-item'>Odustani</button>",'show');
+    text+=append(2,"<button class='btn btn-primary ' id='confirm-insert-item'><i class='icon-big ion-ios-checkmark-empty'></i></button><button class='btn btn-primary ' id='cancel-insert-item'><i class='icon-big ion-ios-close-empty'></i></button>",'show');
     text+='</div>';
     $("#items-data").append(text);
 }

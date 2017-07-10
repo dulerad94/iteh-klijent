@@ -9,6 +9,8 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,75 +19,86 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="receipts" class="col-md-12">
+    <div class="bg">
+    <section class="wrap">
+
+    <div id="receipts">
         <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-12">
+            <div class="col-md-12 row">
                 <div class="col-md-2">
-                    <p>RacunID</p>
+                    <h3>RacunID</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Vreme</p>
+                    <h3>Vreme</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Izdao</p>
+                    <h3>Izdao</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Iznos</p>
+                    <h3>Iznos</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Broj stola</p>
+                    <h3>Broj stola</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Akcije</p>
+                    <h3>Akcije</h3>
                 </div>
                 <div id="receipt-data" class="col-md-12"></div>
             </div>
-            <div class="col-md-12">
+
+            <div class="col-md-12 row">
                 <div class="col-md-3">
-                    <button id="insert-receipt">Dodaj</button>
+                    <button class="btn btn-primary " id="insert-receipt"><i class="icon-big ion-ios-plus-empty"></i></button>
                 </div>
                 <div class="col-md-3">
-                    <button id="asc">Rastuce</button>
+                    <button class="btn btn-primary " id="asc"><i class="icon-big  ion-ios-arrow-thin-up"></i></button>
                 </div>
                 <div class="col-md-3">
-                    <button id="desc">Opadajuce</button>
+                    <button class="btn btn-primary " id="desc"><i class="icon-big  ion-ios-arrow-thin-down"></i></button>
                 </div>
                 <div class="col-md-3">
-                    <input id="filter-input" type="text" placeholder="Izdao">
-                    <button id="filter">Filtriraj</button>
+                    <div class="form col-md-6">
+                        <input class="form-control izdao-forma" id="filter-input" type="text" placeholder="Izdao">
+                    </div>
+                    <div class="btn-search">
+                        <button class="btn btn-primary  btn-search" id="filter"><i class="icon-big ion-ios-search"></i></button>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
     <div id="items" class="col-md-12">
         <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-12">
+            <div class="col-md-12 row">
                 <div class="col-md-2">
-                    <p>RacunID</p>
+                    <h3>RacunID</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>StavkaRacunaID</p>
+                    <h3>StavkaRacunaID</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Iznos</p>
+                    <h3>Iznos</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Proizvod</p>
+                    <h3>Proizvod</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Kolicina</p>
+                    <h3>Kolicina</h3>
                 </div>
                 <div class="col-md-2">
-                    <p>Akcije</p>
+                    <h3>Akcije</h3>
                 </div>
-                <div id="items-data" class="col-md-12"></div>
+                <div id="items-data"></div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 row">
                 <div class="col-md-6">
-                    <button id="insert-item">Dodaj</button>
+                    <button class="btn btn-primary " id="insert-item"><i class="icon-big ion-ios-plus-empty"></i></button>
                 </div>
             </div>
         </div>
+    </div>
+    </section>
     </div>
 </body>
 </html>
